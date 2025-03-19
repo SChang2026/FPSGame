@@ -1,0 +1,19 @@
+Start Game initiated:
+
+Player enters middle of the screen
+Enemies approach spawning from edges of the screen
+Health is dictated by code
+Player actions and speed/health spawn chance
+Player begins to shoot at targets
+Once all enemies are neutralized wave ends
+
+(Repeat) + 1 enemy each round until round 40
+
+Until waves divisible by ten
+Boss appears which has more health and damage than other enemies
+
+(Repeat) + 1 enemy point of health after every 10 rounds indefinitly
+
+Player reaches no amount of health due to collision with enemies
+
+End Game
