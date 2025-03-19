@@ -1,0 +1,26 @@
+Game Description:
+
+Movement:
+
+Common WASD Input for Movement
+Left Click Mouse to Shoot
+Mouse Location Disctates Projectile Path
+
+Enemy Types:
+
+Basic/Red: Three shots, Average Damage, Average Speed
+Tank/Blue: Five shots, Low Damage, Low Speed
+Stealth/Yellow: One shot, High Damage, High Speed
+Boss/Purple: Fifty Shots, Half of Player Health, Very Low Speed, Larger
+Specialist/Brown: Three Shots, High Damage, Low Speed
+Officer/Green: Three Shots, Low Damage, High Speed
+Sections of play that can be unlocked with a certain amount of waves/kills/credits
+
+Power Ups and Utility:
+
+Speed/Yellow: A collectable that increases player speed, 10 seconds
+Shield/Blue: 50 points of overheal that will take damage instead of health, does not regenerate.
+Heal/User Action: 50 points of health given to player, does not give shield. (Bind E)
+Nuke/User Action: 1 use automatic level clear. No regeneration. (Bind SPACE)
+Fireup/User Action: Weapon has an instant kill hit register for 5 seconds. 30 second regeration. (Bind Q)
+
