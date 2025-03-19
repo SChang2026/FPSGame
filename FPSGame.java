@@ -28,23 +28,23 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
     private int mouseX, mouseY;
     private int wave = 1;
     private boolean gameOver = false;
-    public static final int SCREEN_WIDTH = 1920;
-    public static final int SCREEN_HEIGHT = 1080;
-    private boolean waveWipeUsed = false;
-    private long lastHealTime = 0;
-    private boolean fireBoostActive = false;
-    private long lastFireBoostTime = 0;
+    public static final int SCREEN_WIDTH = 1920; //jframe x
+    public static final int SCREEN_HEIGHT = 1080; // jframe y
+    private boolean waveWipeUsed = false; // wave wipe
+    private long lastHealTime = 0; // heal instantly works
+    private boolean fireBoostActive = false; // fire boost action
+    private long lastFireBoostTime = 0; // fire boost instantly works
     private final int FIRE_BOOST_DURATION = 5000; // 5 seconds (in milliseconds)
     private final int FIRE_BOOST_COOLDOWN = 30000; // 30 seconds cooldown
-    private final int HEAL_COOLDOWN = 60000;
+    private final int HEAL_COOLDOWN = 60000; // 60 seconds cooldown
     private ArrayList<PowerUp> powerUps = new ArrayList<>();
-    private boolean speedBoostActive = false;
-    private long speedBoostStartTime = 0;
+    private boolean speedBoostActive = false; // speed boost
+    private long speedBoostStartTime = 0; //speed boost works instantly
     private final int SPEED_BOOST_DURATION = 6000; // 6 seconds
     private int shield = 0; // Extra shield (not affected by medkit)
    
 
-    
+    //creates screem and mouse parameters
     
     public FPSGame() {
         setFocusable(true);
@@ -59,6 +59,8 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
         timer.start();
         spawnEnemies();
     }
+
+ //ememy spawn location, amount, and type
 
     private void spawnEnemies() {
     enemies.clear();
@@ -125,20 +127,24 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
 
    }
 }
+
+ // Activate speed boost
+ 
     public void activateSpeedBoost() {
     if (!speedBoostActive) {
         speedBoostActive = true;
         speedBoostStartTime = System.currentTimeMillis();
     }
 }
-   
+
+ // Activate shield
 
     public void addShield(int amount) {
         shield = Math.min(shield + amount, 100);
 }   
     
 
-
+//Key actions
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -172,6 +178,8 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
         }
     }
 
+ //Create figures on screen
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -202,7 +210,8 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
         }
 
         g.setColor(Color.WHITE);
-     
+
+     //Design choices
 
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Health: " + playerHealth, 20, 50);
@@ -225,6 +234,8 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
     speedBoostActive = false;
     }
 
+// Player movement
+     
     // Move Player (double speed if speed boost is active)
     int actualSpeed = speedBoostActive ? PLAYER_SPEED * 2 : PLAYER_SPEED;
     if (up && playerY > 0) playerY -= actualSpeed;
@@ -303,7 +314,7 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
         repaint();
     }
 
-
+//Key actions
 
     @Override
     public void keyReleased(KeyEvent e) {
@@ -361,6 +372,8 @@ public class FPSGame extends JPanel implements ActionListener, KeyListener, Mous
     }
 }
 
+// Projectile trigonometry, consistency, direction, and impact
+
 class Projectile {
     double x, y;
     double dx, dy;
@@ -389,6 +402,7 @@ class Projectile {
     }
 }
 
+// Enemy creation
 
 class Enemy {
     int x, y;
@@ -433,6 +447,9 @@ class Enemy {
     x = newX;
     y = newY;
 }}
+
+// Inheritance
+
     abstract class PowerUp {
         int x, y;
         int size = 20;
